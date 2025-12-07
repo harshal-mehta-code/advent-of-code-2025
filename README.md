@@ -5,6 +5,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 ## Progress
 
 - ⭐⭐ [Day 1: Secret Entrance](day01/) - Complete
+- ⭐⭐ [Day 2: Gift Shop](day02/) - Complete
 
 ## Structure
 
