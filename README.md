@@ -10,6 +10,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 - ⭐⭐ [Day 4: Printing Department](day04/) - Complete
 - ⭐⭐ [Day 5: Cafeteria](day05/) - Complete
 - ⭐⭐ [Day 6: Trash Compactor](day06/) - Complete
+- ⭐ [Day 7: Laboratories](day07/) - Part 1 Complete
 
 ## Structure
 
