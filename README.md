@@ -12,6 +12,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 - ⭐⭐ [Day 6: Trash Compactor](day06/) - Complete
 - ⭐⭐ [Day 7: Laboratories](day07/) - Complete
 - ⭐⭐ [Day 8: Playground](day08/) - Complete
+- ⭐ [Day 9: Movie Theater](day09/) - Part 1 Complete
 
 ## Structure
 
