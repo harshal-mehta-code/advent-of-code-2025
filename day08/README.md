@@ -11,11 +11,19 @@ The Elves are connecting electrical junction boxes in a 3D space.
 - Result: Multiply the sizes of the **three largest** circuits.
 - Answer: **67488**
 
+### Part 2
+We need to connect all junction boxes into a single circuit (Minimum Spanning Tree).
+- Connect closest components until only 1 component remains.
+- Find the product of the X-coordinates of the last connected pair.
+- Answer: **3767453340**
+
 ## Files
 
-- `day8_input.txt` - Puzzle input (3D coordinates of junction boxes)
-- `day8_solution.py` - Part 1 solution script
-- `test_day8.py` - Test script with example case
+- `day8_input.txt` - Puzzle input (3D coordinates)
+- `day8_solution.py` - Part 1 solution
+- `day8_part2_solution.py` - Part 2 solution
+- `test_day8.py` - Test script for Part 1
+- `test_day8_part2.py` - Test script for Part 2
 
 ## Running the Solutions
 
@@ -23,8 +31,12 @@ The Elves are connecting electrical junction boxes in a 3D space.
 # Part 1
 python3 day8_solution.py
 
+# Part 2
+python3 day8_part2_solution.py
+
 # Test with example
 python3 test_day8.py
+python3 test_day8_part2.py
 ```
 
 ## Algorithm
@@ -37,3 +49,11 @@ python3 test_day8.py
 5. Use **Union-Find** data structure to merge components.
 6. Calculate sizes of all disjoint sets.
 7. Sort sizes descending and multiply the top 3.
+
+**Part 2:**
+1. Parse input points.
+2. Generate and sort all edges by distance.
+3. Use **Kruskal's Algorithm** (Union-Find) to build the Minimum Spanning Tree.
+4. Track the number of connected components.
+5. Identify the edge that reduces the component count to 1.
+6. Return the product of the X-coordinates of that edge's endpoints.
