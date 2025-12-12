@@ -15,6 +15,7 @@ My solutions for [Advent of Code 2025](https://adventofcode.com/2025).
 - ⭐⭐ [Day 9: Movie Theater](day09/) - Complete
 - ⭐⭐ [Day 10: Factory](day10/) - Complete
 - ⭐⭐ [Day 11: Reactor](day11/) - Complete
+- ⭐⭐ [Day 12: Christmas Tree Farm](day12/) - Complete
 
 ## Structure
 
