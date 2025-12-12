@@ -1,29 +1,42 @@
 # Day 11: Reactor
 
-## Part 1
-The problem asks us to count the number of paths from a starting node `you` to an ending node `out` in a directed acyclic graph (DAG). The graph is defined by a list of devices and their connections.
+## Problem Summary
 
-**Solution Approach**:
-The graph is parsed into an adjacency list. Since it's a DAG, we can use Depth-First Search (DFS) with memoization to count the number of distinct paths.
+### Part 1
+We need to count the number of distinct paths from a starting node `you` to an ending node `out` in a system of devices described as a Directed Acyclic Graph (DAG).
+**Answer:** `636`
 
-- **Start Node**: `you`
-- **End Node**: `out`
-- **Algorithm**: `count_paths(node) = sum(count_paths(neighbor) for neighbor in adj[node])`
+### Part 2
+We need to count the number of paths from `svr` (server rack) to `out` that explicitly visit *both* `dac` (digital-to-analog converter) and `fft` (fast Fourier transform) nodes.
+**Answer:** `509312913844956`
 
-**Result**: `636`
+## Solution Approach
 
-## Part 2
-We are asked to count paths from `svr` (server rack) to `out` that visit *both* `dac` (digital-to-analog converter) and `fft` (fast Fourier transform).
+### Part 1
+- The system is parsed into an adjacency list (graph).
+- Since it is a DAG, we use **Depth-First Search (DFS) with Memoization** to count paths efficiently.
+- `paths(u, v)` returns the number of ways to reach `v` from `u`.
 
-**Solution Approach**:
-Since the graph is a DAG, a path cannot visit nodes in an arbitrary order (e.g., `dac` -> `fft` -> `dac` is impossible). We only need to consider the two possible linear orderings of the required nodes:
-1. `svr` -> ... -> `dac` -> ... -> `fft` -> ... -> `out`
-2. `svr` -> ... -> `fft` -> ... -> `dac` -> ... -> `out`
+### Part 2
+- A path visiting both `A` and `B` must visit them in a specific topological order.
+- We check two linear sequences:
+    1. `svr` -> ... -> `dac` -> ... -> `fft` -> ... -> `out`
+    2. `svr` -> ... -> `fft` -> ... -> `dac` -> ... -> `out`
+- The count for a sequence `A -> B -> C -> D` is `paths(A, B) * paths(B, C) * paths(C, D)`.
+- We verify which node comes first topologically (or just calculate both ways; if a path is impossible, the count is 0).
 
-We can calculate the number of paths for each segment independently and multiply them:
-- path1_count = `paths(svr, dac)` * `paths(dac, fft)` * `paths(fft, out)`
-- path2_count = `paths(svr, fft)` * `paths(fft, dac)` * `paths(dac, out)`
+## Files
 
-The total count is the sum of these two values.
+-   `day11_part1.py`: Part 1 solution.
+-   `day11_part2.py`: Part 2 solution.
+-   `input.txt`: Puzzle input.
 
-**Result**: `509312913844956`
+## Usage
+
+```bash
+# Part 1
+python3 day11_part1.py
+
+# Part 2
+python3 day11_part2.py
+```
